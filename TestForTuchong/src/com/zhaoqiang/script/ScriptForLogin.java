@@ -83,6 +83,7 @@ public class ScriptForLogin {
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	private static void requestCaptcha() {
 		try {
 			MediaType JSON = MediaType.parse("application/json; charset=utf-8");
@@ -100,14 +101,19 @@ public class ScriptForLogin {
 				String result_captcha = BaiduOcr.accurateBasic(imgStr);
 				JSONObject object_cpatcha = new JSONObject(result_captcha);
 				JSONArray array = object_cpatcha.getJSONArray("words_result");
-				JSONObject words = array.getJSONObject(0);
-				captcha = words.getString("words");
-				isCaptcha = true;
-				login();
-			}else{
+				if (!array.isEmpty()) {
+					JSONObject words = array.getJSONObject(0);
+					captcha = words.getString("words");
+					isCaptcha = true;
+					// 以用户名密码+验证码方式进行登录
+					login();
+				}else {
+					System.out.println("没有识别到对应验证码");
+					// 重新直接以用户名密码方式登录，再次获取验证码
+					login();
+				}
+			}else 
 				System.out.println("获取base64字符串失败");
-			}
-			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
