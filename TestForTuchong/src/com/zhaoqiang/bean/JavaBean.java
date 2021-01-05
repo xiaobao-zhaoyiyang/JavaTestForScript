@@ -37,9 +37,9 @@ public class JavaBean {
 	};
 
 	// 用户名
-	public static String USERNAME = "我和你一起看";
+	public static String USERNAME = null;
 	// 密码
-	public static String PASSWORD = "abc@123";
+	public static String PASSWORD = null;
 
 	/**
 	 * 生成Header

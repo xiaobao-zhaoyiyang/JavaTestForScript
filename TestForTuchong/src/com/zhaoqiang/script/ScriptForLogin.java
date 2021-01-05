@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import com.zhaoqiang.bean.JavaBean;
 import com.zhaoqiang.imageUtils.BaiduOcr;
 import com.zhaoqiang.internetUtils.OKHTTPClientBuilder;
+import com.zhaoqiang.utils.GetContentFromScanner;
 
 import okhttp3.FormBody;
 import okhttp3.MediaType;
@@ -37,6 +38,9 @@ public class ScriptForLogin {
 	private static String captchaId;
 	private static String uidString;
 	private static String tokenString;
+	static {
+		GetContentFromScanner.getUserNameAndPwd();
+	}
 	public static void login() {
 		try {
 			RequestBody body = null;
@@ -104,9 +108,14 @@ public class ScriptForLogin {
 				if (!array.isEmpty()) {
 					JSONObject words = array.getJSONObject(0);
 					captcha = words.getString("words");
-					isCaptcha = true;
-					// 以用户名密码+验证码方式进行登录
-					login();
+					if (captcha.length() != 4) {
+						// 重新直接以用户名密码方式登录，再次获取验证码
+						login();
+					}else {
+						isCaptcha = true;
+						// 以用户名密码+验证码方式进行登录
+						login();
+					}
 				}else {
 					System.out.println("没有识别到对应验证码");
 					// 重新直接以用户名密码方式登录，再次获取验证码
