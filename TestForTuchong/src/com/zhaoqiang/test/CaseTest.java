@@ -11,7 +11,7 @@ public class CaseTest {
 	public static void main(String[] args) throws Exception{
 		// TODO Auto-generated method stub
 		ScriptForLogin.login();
-		scriptForCourse.course();
+//		scriptForCourse.course();
 //		scriptForDeleteData.AnalysisPostId(JavaBean.UID);
 //		scriptForDeleteData.deleteData();
 		
