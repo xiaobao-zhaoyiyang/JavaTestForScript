@@ -1,5 +1,6 @@
 package com.zhaoqiang.test;
 
+import com.zhaoqiang.bean.JavaBean;
 import com.zhaoqiang.script.ScriptForCourse;
 import com.zhaoqiang.script.ScriptForDeleteData;
 import com.zhaoqiang.script.ScriptForLogin;
@@ -13,8 +14,8 @@ public class CaseTest {
 		// TODO Auto-generated method stub
 		ScriptForLogin.login();
 //		scriptForCourse.course();
-//		scriptForDeleteData.AnalysisPostId(JavaBean.UID);
-//		scriptForDeleteData.deleteData();
+		scriptForDeleteData.AnalysisPostId(JavaBean.UID);
+		scriptForDeleteData.deleteData(1);
 		
 		}	
 

@@ -61,7 +61,7 @@ public class JavaBean {
 //			put("accept-encoding", "gzip, deflate");
 			put("accept-language", "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7");
 			put("cookie", "webp_enabled=1, "
-//					+ "token=18f1ad957efd9e0b, "
+					+ "token=" + TOKEN + ","
 					+ "lang=zh, " + "PHPSESSID=inejn5iuengq7muiqos0eeuaef, " + "_ga=GA1.2.1056662492.1606553476,"
 					+ " _gid=GA1.2.304345705.1606553476, " + "MONITOR_WEB_ID=49b75dbd-30e5-49b8-b40f-1fc031cb4a7a, "
 					+ "_gat=1");
@@ -72,5 +72,4 @@ public class JavaBean {
 
 	};
 	public static Headers headers = Headers.of(headerMap);
-
 }
