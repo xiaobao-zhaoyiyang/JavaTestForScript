@@ -38,7 +38,9 @@ public class ReadDataFromExcel {
 		// 将title的内容转换成标识
 		List<String> titleJsonList = new ArrayList<>();
 		for (int i = 0; i < titleList.size(); i++) {
-			titleJsonList.add(JavaBean.titleMap.get(titleList.get(i)));
+			String titleJson = JavaBean.titleMap.get(titleList.get(i));
+			if(null != titleJson)
+				titleJsonList.add(titleJson);
 		}
 		System.out.println("titlejson值 = " + titleJsonList);
 		return titleJsonList;

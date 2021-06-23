@@ -11,7 +11,7 @@ public class JavaBean {
 	public static final String FILE_PATH = "/Users/zhaoqiang/Documents/MyFiles/上架课程.xlsx";
 
 	// 读取表格下标
-	public static final int INDEX_OF_SHEET = 1;
+	public static final int INDEX_OF_SHEET = 2;
 
 	// 标题
 	public static HashMap<String, String> titleMap = new HashMap<>() {

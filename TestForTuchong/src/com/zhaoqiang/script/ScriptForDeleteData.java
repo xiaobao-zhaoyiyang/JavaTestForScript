@@ -108,6 +108,10 @@ public class ScriptForDeleteData {
 		System.out.println(post_id);
 	}
 
+	/**
+	 * 删除单一数据，即根据作品id删除一个作品
+	 * @param index 删除作品的下标
+	 */
 	public void deleteData(int index) {
 		// app获取数据后根据类型type不同调用不同的删除接口
 //		HashMap<String, String> map = post_id.get(4);
