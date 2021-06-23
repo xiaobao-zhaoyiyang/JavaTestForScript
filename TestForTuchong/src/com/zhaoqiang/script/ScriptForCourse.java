@@ -38,7 +38,7 @@ public class ScriptForCourse {
 					String response = readDataFromServer
 							.connectServerByGet("https://tuchong.com/gapi/misc/paid-course/course-group/detail"
 									+ "?course_group_id=" + course_id);
-					// 异步获取数据，循环等待数据返回
+//					 异步获取数据，循环等待数据返回
 					boolean isBack = false;
 					while (!isBack) {
 //								System.out.println(response);

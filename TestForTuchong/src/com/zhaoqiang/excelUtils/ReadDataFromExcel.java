@@ -16,6 +16,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import com.zhaoqiang.bean.JavaBean;
 
 public class ReadDataFromExcel {
+	
+	private List<Integer> indexNull = new ArrayList<>();
 
 	public XSSFSheet openExcel(String readPath, int index) {
 		try {
@@ -81,7 +83,16 @@ public class ReadDataFromExcel {
 					break;
 				}
 				if (cell.getCellType() != CellType.BLANK) {
-					titleList.add(cellValue);
+					if (indexRow == 0) { 
+						if(JavaBean.titleMap.containsKey(cellValue)) {
+							titleList.add(cellValue);
+						}else {
+							indexNull.add(i);
+						}
+					}else {
+						if (!indexNull.contains(i)) 
+							titleList.add(cellValue);
+					}
 				} else {
 					continue;
 				}
